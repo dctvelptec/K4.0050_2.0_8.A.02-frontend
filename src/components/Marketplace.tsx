@@ -60,7 +60,7 @@ export const Marketplace = () => {
           </table>
         </div>
       ) : (
-        <span>nein</span>
+        <span>no offers available</span>
       )}
     </div>
   );

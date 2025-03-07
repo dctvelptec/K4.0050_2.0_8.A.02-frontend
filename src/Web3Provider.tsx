@@ -1,13 +1,14 @@
 import { WagmiProvider, createConfig, http } from "wagmi";
-import { hardhat, localhost, mainnet } from "wagmi/chains";
+import { hardhat, localhost, mainnet, sepolia } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { PropsWithChildren } from "react";
 
 const config = createConfig(
   getDefaultConfig({
-    chains: [hardhat],
+    chains: [sepolia, hardhat],
     transports: {
+      [sepolia.id]: http(import.meta.env.SEPOLIA_RPC),
       [hardhat.id]: http(),
     },
 
